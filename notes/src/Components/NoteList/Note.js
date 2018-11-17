@@ -13,15 +13,18 @@ import { Link } from 'react-router-dom';
 
  const Note = (props) => {
    /* Truncating via code instead of CSS */
-   let propText = props.textBody;
+   const propText = props.textBody;
    const text = propText.length > 125 ?
       propText.substring( 0, 120 ) + "..." :
       propText;
-      
+    const propTitle = props.title;
+    const title = propTitle.length > 22 ?
+      propTitle.substring( 0, 20 ) + "..." :
+      propTitle;
 
    return (
     <Link to={`/note/${props.id}`} className="note">
-      <h3 className="noteTitle">{props.title}</h3>
+      <h3 className="noteTitle">{title}</h3>
       <div className="noteText">{text}</div>
     </Link>
    );

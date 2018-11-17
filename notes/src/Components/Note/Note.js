@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 
 import './Note.css';
 
@@ -77,7 +78,7 @@ class Note extends Component {
           <Link to={`/delete/${this.state.note._id}`} onClick={this.handleDelete}>delete</Link>
         </div>
         <div className="viewNoteTitle">{this.state.note.title}</div>
-        <div className="viewNoteText">{this.state.note.textBody}</div>
+        <ReactMarkdown className="viewNoteText" source={this.state.note.textBody} />
       </div>
       </>
     );
